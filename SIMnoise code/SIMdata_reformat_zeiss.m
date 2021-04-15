@@ -20,8 +20,8 @@ end
 % selection dataset(s) to be processed
 if is_executed_as_script
   % all datasets for the paper for individual or batch reconstruction
-%   allSIMdatasets = {'GFP_zyxin'}; 
-  allSIMdatasets = {'nano_test_structures_chirp'}; 
+  allSIMdatasets = {'GFP_zyxin'}; 
+%   allSIMdatasets = {'nano_test_structures_chirp'}; 
 %   allSIMdatasets = {'nano_test_structures_finepitch'}; 
 %   allSIMdatasets = {'mCherry_synaptonemal_complex'}; 
 %   allSIMdatasets = {'invitrogen_test_slide'}; 
@@ -40,13 +40,15 @@ for jdataset = 1:numel(allSIMdatasets)
   %  subfolder "data", as described in the readme file
   if is_executed_as_script
     rootdir = './data/';
+    datadir = 'Zeissdatafiles';
   else
     rootdir = dataparams.rootdir;
+    datadir = dataparams.datadir;
   end
 
   % input directory with raw data and output directory for preprocessed image
   % data and parameter file
-  inputdatadir = strcat(rootdir,'Zeissdatafiles'); 
+  inputdatadir = strcat(rootdir,datadir); 
   outputdatadir = strcat(rootdir,SIMdataset);
   if ~exist(inputdatadir, 'dir')
     mkdir(inputdatadir)
@@ -146,6 +148,9 @@ for jdataset = 1:numel(allSIMdatasets)
     numchannels = dataparams.numchannels; % number of color channels
     selectwavelengths = dataparams.selectwavelengths; % select color channel, 1=red,2=green,3=blue,4=far_red
     numframes = dataparams.numframes; % number of frames in time series
+    cropZ = 3;
+    datafilelabels = dataparams.datafilelabels;
+    readtiffchannel = dataparams.cropchannels;
     
     % microscope system parameters
     SIMparams.rawpixelsize = dataparams.rawpixelsize; % pixel size and focal stack spacing (nm)
@@ -188,7 +193,7 @@ for jdataset = 1:numel(allSIMdatasets)
               otherwise
                 datafilename = strcat(datafilelabels,'_z',num2str(focuslayer-1),'_r',num2str(jangle-1),'_h',num2str(jstep-1),'.tif'); 
             end
-            tempim = imread(datafilename);
+            tempim = imread([inputdatadir '/' datafilename]);
             tempim = double(tempim);
             tempim = double(tempim(:,:,readtiffchannel));
             tempim = tempim(cropX,cropY);

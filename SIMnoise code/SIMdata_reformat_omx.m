@@ -53,13 +53,15 @@ for jdataset = 1:numel(allSIMdatasets)
   %  subfolder "data", as described in the readme file
   if is_executed_as_script
     rootdir = './data/';
+    datadir = 'OMXdatafiles';
   else
     rootdir = dataparams.rootdir;
+    datadir = dataparams.datadir;
   end
 
   % input directory with raw data and output directory for preprocessed image
   % data and parameter file
-  inputdatadir = strcat(rootdir,'OMXdatafiles'); 
+  inputdatadir = strcat(rootdir,datadir); 
   outputdatadir = strcat(rootdir,SIMdataset);
   if ~exist(inputdatadir, 'dir')
     mkdir(inputdatadir)

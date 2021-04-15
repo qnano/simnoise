@@ -84,8 +84,10 @@ for jdataset = 1:numel(allSIMdatasets)
   % data and parameter file
   if is_executed_as_script
     rootdir = './data/';
+    otfdir = 'OMXdatafiles';
   else
     rootdir = dataparams.rootdir;
+    otfdir = dataparams.otfdir;
   end
   mydatadir = strcat(rootdir,SIMdataset);
   if ~exist(mydatadir, 'dir')
@@ -192,7 +194,7 @@ for jdataset = 1:numel(allSIMdatasets)
       % check if all OTF data files are present
       OTFfilespresent = 1;
       for jchannel = 1:numchannels
-        allfilepathsOTFdata{jchannel} = strcat(rootdir,'OMXdatafiles','\',allfilenamesOTFdata{jchannel});
+        allfilepathsOTFdata{jchannel} = strcat(rootdir,otfdir,'\',allfilenamesOTFdata{jchannel});
         OTFfilespresent = OTFfilespresent&exist(allfilepathsOTFdata{jchannel},'file');
       end
 
