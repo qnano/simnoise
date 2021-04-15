@@ -11,7 +11,7 @@ netid = 'sstallinga';
 % netid = 'sierdsmith';
 
 % directory where to place the svg output files
-moviedir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\figures\SMovie7 to 8 - 3D color SIM throughfocus\'];
+moviedir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\figures and movies\SMovie7 to 8 - 3D color SIM throughfocus\'];
 
 % directory where to place all data
 rootdir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\data\'];

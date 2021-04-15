@@ -15,7 +15,7 @@ netid = 'sstallinga';
 % netid = 'sierdsmith';
 
 % directory where to place the svg output files
-figuredir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\figures\Figure1 - noise propagation\'];
+figuredir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\figures and movies\Figure1 - noise propagation\'];
 
 % directory where to place all data
 rootdir = ['C:\Users\' netid '\Documents\Structured Illumination Microscopy\SIM noise\data\'];
