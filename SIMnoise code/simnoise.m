@@ -28,8 +28,8 @@ addpath(genpath('./helperfunctions'))
 
 dataparams.allSIMdatasets = {'20150724_Tub-6_512_T1_30ms_04'}; %filename(s) of the structured illumination microscopy dataset
 dataparams.rootdir = './data/'; % input directory with raw data and output directory for preprocessed image data and parameter file
-dataparams.datadir = 'OMXdatafiles';
-dataparams.otfdir = 'OMXdatafiles';
+dataparams.datadir = 'OMXdatafiles'; % input directory with sample data from OMX
+dataparams.otfdir = 'OMXdatafiles'; % input directory with the otf files
 
 dataparams.numangles = 3; % number of pattern angles, OMX system
 dataparams.numsteps = 5; % number of phase steps, OMX system
